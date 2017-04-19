@@ -1,1 +1,40 @@
-{     "devDependencies": {         "bpmn": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-bpmn",     "homepage": "https://github.com/npmtest/node-npmtest-bpmn",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-bpmn.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [bpmn (v0.2.2)](https://github.com/e2ebridge/bpmn#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-bpmn.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-bpmn) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-bpmn.svg)](https://travis-ci.org/npmtest/node-npmtest-bpmn)",
+    "devDependencies": {
+        "bpmn": "*",
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-bpmn",
+    "keywords": [
+        "coverage",
+        "test",
+        "bpmn"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_bpmn.js",
+    "name": "npmtest-bpmn",
+    "nameAlias": "npmtest_bpmn",
+    "nameOriginal": "npmtest-bpmn",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-bpmn.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
